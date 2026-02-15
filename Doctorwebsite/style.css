@@ -742,6 +742,10 @@ textarea.form-control {
     flex-basis: 200px;
     height: 200px;
   }
+  .why-image{
+    height: 50vh;
+    
+  }
   .testimonial-card {
     padding: 30px 22px;
   }
