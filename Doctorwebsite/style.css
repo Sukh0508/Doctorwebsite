@@ -696,6 +696,9 @@ textarea.form-control {
 
 /* mobile fine-tuning */
 @media (max-width: 700px) {
+  body{
+    overflow-x: hidden;
+  }
   .navbar {
     align-items: stretch;
     padding: 15px 15px;
@@ -744,7 +747,7 @@ textarea.form-control {
   }
   .why-image{
     height: 50vh;
-    
+
   }
   .testimonial-card {
     padding: 30px 22px;
