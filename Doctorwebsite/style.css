@@ -1,0 +1,776 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Amarante", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background: #fcf9f5; /* soft warm white */
+  color: #1f2e36;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ----- glassmorphism navbar (responsive) ----- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  background: rgba(255, 250, 245, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200, 175, 150, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+  gap: 15px 25px;
+  transition: all 0.3s;
+}
+.logo {
+  background-image: url("https://i0.wp.com/hnhhomeopathy.in/wp-content/uploads/2025/04/cropped-Rainbow__8_-removebg-preview-e1745866056962.webp?w=482&ssl=1");
+  background-size: 100% 100%;
+  height: 70px;
+  width: 20%;
+}
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+.nav-links i {
+  display: none;
+}
+.navbar li {
+  list-style: none;
+  display: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1f3a40;
+  font-size: 1.1rem;
+  transition: 0.2s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 6px;
+}
+
+.nav-links a:hover {
+  border-bottom-color: #b16e5a;
+  color: #b16e5a;
+}
+
+.whatsapp-float {
+  background: #1da561;
+  color: white;
+  padding: 10px 26px;
+  border-radius: 60px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 12px 24px -10px rgba(29, 165, 97, 0.4);
+  transition: 0.2s;
+  font-size: 1rem;
+}
+
+.whatsapp-float:hover {
+  background: #168b4f;
+  transform: scale(1.02) translateY(-2px);
+}
+
+/* floating top button */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 25px;
+  background: #b16e5a;
+  padding: 12px 22px;
+  border-radius: 60px;
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  opacity: 0.9;
+  transition: 0.2s;
+  font-size: 1rem;
+}
+
+.scroll-top a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-top:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+/* ----- HERO section (fully responsive + animations) ----- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px 20px 70px;
+  flex-wrap: wrap;
+  background: radial-gradient(ellipse at 20% 30%, #fffaf2, #f9efe6);
+  border-radius: 0 0 80px 80px;
+}
+
+.hero-text {
+  flex: 1 1 400px;
+}
+
+.hero-text h2 {
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  line-height: 1.1;
+  color: #1b4b4f;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInLeft 0.7s 0.1s forwards;
+}
+
+.credentials {
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  color: #6b5342;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInLeft 0.7s 0.15s forwards;
+}
+
+.hero-text p {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  margin: 25px 0 20px;
+  max-width: 700px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.25s forwards;
+  text-align: justify;
+}
+
+.experience-badge {
+  display: inline-block;
+  background: #1b4b4f;
+  color: white;
+  padding: 12px 38px;
+  border-radius: 60px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 12px 22px -12px #1b4b4f;
+  opacity: 0;
+  animation: scaleIn 0.5s 0.4s forwards;
+}
+
+.hero-image {
+  flex: 1;
+  height: 50vh;
+  width: 100%;
+  background: linear-gradient(135deg, #cfa37b, #b88263);
+  box-shadow: 35px 35px 40px -25px #aa6f55;
+  background-image: url("https://i0.wp.com/hnhhomeopathy.in/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-19-at-10-2.webp?w=1536&ssl=1");
+  background-size: 100% 100%;
+  background-blend-mode: overlay;
+  transition: 1s;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+/* section titles with animated underline */
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 600;
+  margin: 70px 0 40px;
+  color: #1b4b4f;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 5px;
+  background: linear-gradient(90deg, #b16e5a, #daba9c);
+  margin-top: 12px;
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+.section-title.center {
+  text-align: center;
+}
+
+.section-title.center::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* why grid – responsive cards */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin: 30px 0 20px;
+}
+
+.why-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 40px;
+  box-shadow: 0 25px 40px -22px rgba(90, 60, 40, 0.2);
+  border: 1px solid #f2e3d5;
+  transition: all 0.35s;
+}
+.why-image {
+  background-image: url("./image/whyimage.jpeg");
+  height: 70vh;
+  width: 100%;
+  background-size: 100% 100%;
+}
+
+.why-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 35px 50px -24px #b16e5a80;
+}
+
+.why-card i {
+  font-size: 3rem;
+  color: #b16e5a;
+  margin-bottom: 22px;
+}
+
+.why-card h3 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1b4b4f;
+}
+
+.why-card p {
+  font-size: 1.1rem;
+  color: #344e55;
+}
+
+/* specializations */
+.specials-wrapper {
+  background: #f4ece4;
+  border-radius: 100px 100px 40px 40px;
+  padding: 50px 28px;
+  margin: 50px 0;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 28px;
+}
+
+.spec-item {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(3px);
+  padding: 30px 10px;
+  border-radius: 60px;
+  text-align: center;
+  border: 1px solid #fff6ee;
+  transition: 0.2s;
+  
+}
+.spec-item:hover {
+  transition: 2s ease-in-out;
+  scale: 1.1;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
+.pain-image {
+  background-image: url("./image/Specializations1.png");
+  background-size: 100% 100%;
+  border-radius: 60px;
+  height: 200px;
+}
+.mental-welness {
+  background-image: url("./image/Specializations2.png");
+  background-size: 100% 100%;
+  border-radius: 60px;
+  height: 200px;
+}
+.asthma-image {
+  background-image: url("./image/Specializations3.png");
+  background-size: 100% 100%;
+  border-radius: 60px;
+  height: 200px;
+}
+.hair-image {
+  background-image: url("./image/Specializations4.png");
+  background-size: 100% 100%;
+  border-radius: 60px;
+  height: 200px;
+}
+
+.female-health-image {
+  background-image: url("./image/Specializations5.png");
+  background-size: 100% 100%;
+  border-radius: 60px;
+  height: 200px;
+}
+.spec-item i {
+  font-size: 2.8rem;
+  color: #1b4b4f;
+  margin-bottom: 14px;
+  padding: 10px 0px;
+}
+
+.spec-item h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* doctors premium */
+.doctors-grid {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.doctor-card {
+  background: white;
+  border-radius: 60px;
+  padding: 48px 36px;
+  flex: 1 1 320px;
+  box-shadow: 0 35px 50px -25px #ae8b76;
+  border: 1px solid #f1d9cc;
+  transition: 0.3s;
+}
+.doctor-card-img {
+  background-image: url("https://i0.wp.com/hnhhomeopathy.in/wp-content/uploads/2025/05/Untitled-design-14.webp?w=1280&ssl=1");
+  border-radius: 20px;
+  background-size: 100% 100%;
+  flex: 1 1 200px;
+  box-shadow: 0 35px 50px -25px #ae8b76;
+  border: 1px solid #f1d9cc;
+  transition: 0.3s;
+}
+
+.doctor-card:hover {
+  transform: scale(1.01) translateY(-6px);
+  box-shadow: 0 40px 60px -20px #b16e5a;
+}
+
+.doctor-name {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #1b4b4f;
+}
+
+.doctor-deg {
+  font-size: 1.3rem;
+  color: #b16e5a;
+  margin: 12px 0 20px;
+  border-bottom: 2px dashed #ecdacb;
+  padding-bottom: 15px;
+}
+
+.testimonial-card {
+  background: #e3d5ca;
+  padding: 50px 48px;
+  border-radius: 90px 20px 90px 20px;
+  max-width: 950px;
+  margin: 0 auto 40px;
+}
+
+.testimonial-card i {
+  font-size: 3.8rem;
+  color: #b16e5a40;
+}
+
+.testimonial-card p {
+  font-size: 1.7rem;
+  font-weight: 300;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.testimonial-mini {
+  background: #f7f3ef;
+  padding: 32px;
+  border-radius: 40px;
+  max-width: 340px;
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.client-name {
+  margin-top: 25px;
+  font-weight: 600;
+  color: #1b4b4f;
+}
+.review i {
+  color: #f2b01f;
+  font-size: 20px;
+}
+
+/* results area */
+.results-area {
+  display: flex;
+  gap: 30px 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #edf1ef;
+  padding: 60px 20px;
+  border-radius: 120px;
+  box-shadow: 0 25px 40px -22px rgba(90, 60, 40, 0.2);
+}
+
+.result-item1 {
+  text-align: center;
+  background-image: url("https://i0.wp.com/hnhhomeopathy.in/wp-content/uploads/2025/05/5.png?w=1024&ssl=1");
+  background-size: 100% 100%;
+  height: 250px;
+  width: 25%;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.result-item2 {
+  text-align: center;
+  background-image: url("https://i0.wp.com/hnhhomeopathy.in/wp-content/uploads/2025/05/4.png?w=1024&ssl=1");
+  background-size: 100% 100%;
+  height: 250px;
+  width: 25%;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.result-item3 {
+  text-align: center;
+  background-image: url("https://i0.wp.com/hnhhomeopathy.in/wp-content/uploads/2025/05/3.png?w=1024&ssl=1");
+  background-size: 100% 100%;
+  height: 250px;
+  border-radius: 20px;
+  width: 25%;
+  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.result-item4 {
+  text-align: center;
+  background-image: url("https://i0.wp.com/hnhhomeopathy.in/wp-content/uploads/2025/05/6.png?w=1024&ssl=1");
+  background-size: 100% 100%;
+  height: 250px;
+  width: 25%;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.result-item i {
+  font-size: 3.5rem;
+  color: #b16e5a;
+}
+
+.result-item h5 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #1b4b4f;
+  margin: 8px 0;
+}
+
+/* FAQ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 45px 0;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 48px;
+  padding: 30px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.02);
+}
+
+.faq-q {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1f3a40;
+  margin-bottom: 10px;
+}
+
+.faq-a {
+  color: #3d5a5f;
+}
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: 60px 0 40px;
+}
+.contact-info {
+  flex: 1 1 350px;
+}
+.contact-form {
+  flex: 1 1 450px;
+  background: white;
+  border-radius: 60px;
+  padding: 50px 45px;
+  box-shadow: 0 40px 60px -30px #b16e5a60;
+  border: 1px solid #f2e3d5;
+  transition: 0.3s;
+}
+.contact-form:hover {
+  box-shadow: 0 50px 70px -30px #b16e5a;
+}
+
+/* info cards */
+.info-card {
+  background: white;
+  border-radius: 40px;
+  padding: 35px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 20px 35px -12px rgba(90, 60, 40, 0.12);
+  border: 1px solid #f2e3d5;
+  transition: 0.2s;
+}
+.info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 45px -18px #b16e5a80;
+}
+.info-icon {
+  font-size: 2.5rem;
+  color: #b16e5a;
+  margin-bottom: 15px;
+}
+.info-card h3 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #1b4b4f;
+  margin-bottom: 12px;
+}
+.info-card p,
+.info-card a {
+  font-size: 1.2rem;
+  color: #344e55;
+  text-decoration: none;
+  display: block;
+  margin-top: 8px;
+}
+.info-card a:hover {
+  color: #b16e5a;
+}
+.social-row {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
+}
+.social-row a {
+  font-size: 2rem;
+  color: #1b4b4f;
+  transition: 0.2s;
+}
+.social-row a:hover {
+  color: #b16e5a;
+  transform: scale(1.1);
+}
+
+/* form styling */
+.form-group {
+  margin-bottom: 28px;
+}
+.form-group label {
+  font-weight: 500;
+  color: #1f3a40;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 8px;
+}
+.form-control {
+  width: 100%;
+  padding: 18px 22px;
+  font-size: 1.05rem;
+  border: 1.5px solid #e9d9cd;
+  border-radius: 40px;
+  background: #fefcf9;
+  transition: 0.2s;
+  font-family: "Outfit", sans-serif;
+}
+.form-control:focus {
+  outline: none;
+  border-color: #b16e5a;
+  box-shadow: 0 0 0 5px rgba(176, 110, 90, 0.15);
+}
+textarea.form-control {
+  border-radius: 40px;
+  resize: vertical;
+}
+.submit-btn {
+  background: #1b4b4f;
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 15px 25px -10px #1b4b4f;
+  width: 100%;
+}
+.submit-btn:hover {
+  background: #b16e5a;
+  transform: translateY(-4px);
+  box-shadow: 0 25px 35px -12px #b16e5a;
+}
+
+/* footer */
+.premium-footer {
+  background: #1b3b3f;
+  color: #f0e3d5;
+  padding: 60px 32px 30px;
+  border-radius: 70px 70px 0 0;
+  margin-top: 80px;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.footer-grid h2 img {
+  width: 60%;
+}
+.footer-grid h4 {
+  font-size: 30px;
+}
+/* animations */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* mobile fine-tuning */
+@media (max-width: 700px) {
+  .navbar {
+    align-items: stretch;
+    padding: 15px 15px;
+  }
+  .logo {
+    width: 40%;
+  }
+
+  .nav-links {
+    background-color: #1b4b4fee;
+    backdrop-filter: blur(50px);
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+  .nav-links a {
+    color: white;
+    font-size: 30px;
+  }
+  .nav-links i {
+    display: initial;
+    color: white;
+    font-size: 35px;
+  }
+  .navbar li {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .whatsapp-float {
+    height: 30px;
+    width: 30px;
+  }
+
+  .hero-image {
+    flex-basis: 200px;
+    height: 200px;
+  }
+  .testimonial-card {
+    padding: 30px 22px;
+  }
+
+  .testimonial-card p {
+    font-size: 1.3rem;
+  }
+
+  .section-title::after {
+    width: 90px;
+  }
+  .doctor-card-img {
+    height: 300px;
+    width: 100%;
+  }
+  .result-item1 {
+    width: 90%;
+  }
+  .result-item2 {
+    width: 90%;
+  }
+  .result-item3 {
+    width: 90%;
+  }
+  .result-item4 {
+    width: 90%;
+  }
+  .specials-wrapper {
+    border-radius: 50px 50px 30px 30px;
+    padding: 30px 16px;
+  }
+}
