@@ -5,6 +5,9 @@
   font-family: "Amarante", serif;
   font-weight: 400;
   font-style: normal;
+  scroll-behavior: smooth;
+
+  /* overflow-x: hidden; */
 }
 
 body {
@@ -96,7 +99,7 @@ body {
 .scroll-top {
   position: fixed;
   bottom: 30px;
-  right: 25px;
+  right: 40px;
   background: #b16e5a;
   padding: 12px 22px;
   border-radius: 60px;
@@ -239,9 +242,10 @@ body {
   transition: all 0.35s;
 }
 .why-image {
-  background-image: url("./image/whyimage.jpeg");
+  background-image: url("./image/whyimg.png");
   height: 70vh;
-  width: 100%;
+  width: 90%;
+  margin-left: 5%;
   background-size: 100% 100%;
 }
 
@@ -316,7 +320,13 @@ body {
   height: 200px;
 }
 .hair-image {
-  background-image: url("./image/Specializations4.png");
+  background-image: url("./image/hair.png");
+  background-size: 100% 100%;
+  border-radius: 60px;
+  height: 200px;
+}
+.skin-image {
+  background-image: url("./image/skin.png");
   background-size: 100% 100%;
   border-radius: 60px;
   height: 200px;
@@ -696,12 +706,10 @@ textarea.form-control {
 
 /* mobile fine-tuning */
 @media (max-width: 700px) {
-  body{
-    overflow-x: hidden;
-  }
   .navbar {
     align-items: stretch;
     padding: 15px 15px;
+    
   }
   .logo {
     width: 40%;
@@ -746,7 +754,7 @@ textarea.form-control {
     height: 200px;
   }
   .why-image{
-    height: 50vh;
+    height: 40vh;
 
   }
   .testimonial-card {
